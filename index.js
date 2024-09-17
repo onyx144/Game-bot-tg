@@ -154,12 +154,11 @@ bot.on("callback_query", (callbackQuery) => {
       sendMessageTarifPay(chatId);
 
      break; 
-     case "pay_game":
+     /*case "pay_game":
       if (!customData[chatId]) {
         customData[chatId] = {}; 
       }
-      bot.sendMessage(chatId, 'Нажаль мы очікуємо еквайрінг від LiqPay, як вони його нададуть , ви зможете скористатися нашими послугами');
-     break;
+     break;*/
     case "set_title":
       customData[chatId].waitingFor = "title";
       customData[chatId].name = "назви гри";
@@ -245,9 +244,9 @@ bot.on("callback_query", (callbackQuery) => {
         );
       } else {
         // Все данные заполнены, можно создавать HTML
-        bot.sendMessage(chatId, "На жаль, у вас не сплачено створення гри, будь ласка сплатіть за обраний тариф і ви зможете створити вашу гру");
-        sendMessageTarifPay(chatId);
-
+       // bot.sendMessage(chatId, "На жаль, у вас не сплачено створення гри, будь ласка сплатіть за обраний тариф і ви зможете створити вашу гру");
+        //sendMessageTarifPay(chatId);
+        generateHTML(gameData , chatId);
         // }
       break;
   }}
